@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="JurnalTrade">
+  <title>JurnalTrade</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <button id="periodBtn" class="period" aria-label="Pilih bulan">
+      <span id="periodName">Bulan 1</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <button id="settingsBtn" class="icon-btn" aria-label="Pengaturan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+    </button>
+  </header>
+
+  <section class="summary">
+    <p class="scope" id="sScope">Total bulan</p>
+    <div class="total-wrap"><span class="total" id="sTotal">0</span><span class="unit">USD</span></div>
+    <div class="stats">
+      <div><span id="sWr">–</span><small>Winrate</small></div>
+      <div><span id="sCount">0</span><small>Trade</small></div>
+      <div><span id="sTpSl">0/0</span><small>TP/SL</small></div>
+      <div><span id="sPip">0</span><small>Pip</small></div>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs"></nav>
+  <main id="list"></main>
+
+  <button class="fab" id="addBtn" aria-label="Tambah trade">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+
+  <section class="view" id="stats" hidden>
+    <div class="view-in">
+      <header class="vhead">
+        <button class="icon-btn" id="statsBack" aria-label="Kembali">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <h1>Statistik</h1>
+      </header>
+      <div class="filters">
+        <select id="fPeriod" class="chip" aria-label="Bulan"></select>
+        <select id="fWeek" class="chip" aria-label="Minggu"></select>
+      </div>
+      <div id="statsBody"></div>
+    </div>
+  </section>
+
+  <div class="backdrop" id="backdrop"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
